@@ -1,13 +1,83 @@
+*{
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+    min-width: 100vw;
+    max-width: 100vw;
+    background-color: #fefefe;
+    overflow-x: clip;
+    display: flex;
+    padding: 0 0.75rem;
+    flex-direction: column;
+    background-color: #fefefe;
+    /*background-color: orange;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.main{
+  display: flex;
+
+}
+.title{
+  display: flex;
+ width: 100%;
+  padding:1rem;
+  background-color: #fefefe !important;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.title h2{
+  text-align: left;
+  font-size: 2.5rem;
+
+}
+.title p{
+  font-size: 1.5rem;
+  color:gray;
+  text-align: left;
+  max-width: 60ch;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+h1{
+  margin: 0px;
+  padding: 0px;
+}
+.blue{
+  color:blue;
+}
+header{
+  width: 100%;
+  margin: 0 -0.5rem;
+  text-align: left;
+  margin: 0px;
+  background-color: white !important;
+  padding: 1rem;
+}
+
+.main{
+  text-align: left;
+  justify-content: space-between;
+  display: flex;
+  padding: 1.2rem;
+}
+.Bookmarks{
+  padding-top: 1.2rem;
+  /*text-align: center;*/
+  width: 25%;
+}
+.contractList{
+width: 70%;
+  padding: 1.2rem;
+  margin-right: 1rem;
+
+}
+.contractItem{
+
 }
