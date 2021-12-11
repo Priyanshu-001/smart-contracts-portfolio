@@ -1,12 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import LoadLotto from './views/loadlotto';
 import './index.css';
 import App from './App';
+import MainPage from  './views/MainPage';
 import reportWebVitals from './reportWebVitals';
+import Lotto from './views/lotto'
+
+import { store } from './app/store'
+import { Provider } from 'react-redux'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+ <Provider store={store}>
+  <BrowserRouter>
+  <Routes>
+    <Route path='/' element = {<App/>} >
+      <Route path="lotto/:id" element = {<LoadLotto/>} />
+      <Route path="/" element = {<MainPage/>} />
+      <Route path="lotto" element = {<Lotto/>} />
+    </Route>
+
+  </Routes>
+  </BrowserRouter>
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
