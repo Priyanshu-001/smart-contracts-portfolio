@@ -1,19 +1,20 @@
 /* global BigInt */
 import { Accordion, AccordionTab } from 'primereact/accordion';
 import Web3 from 'web3';
+import {useNavigate} from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import { InputMask } from 'primereact/inputmask';
 import {InputNumber} from 'primereact/inputnumber';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 export default function Actions(){
-
-
-	let [add,setAdd] = useState('Address')
+	let navigate = useNavigate()
+	let [add,setAdd] = useState()
 	let [prizePool,setPrizePool] = useState(0n)
 	let [minTickets, setMinTickets] = useState(5)
 	let [cost, setCost] = useState(0)
 	let [fees, setFees] = useState(0)
+
 	useEffect(()=>{
 		let tenE12 = BigInt(1e12)
 		let Cost = BigInt(cost*1e6)
@@ -21,9 +22,15 @@ export default function Actions(){
 		let Tickets = BigInt(minTickets)
 		setPrizePool(()=>(Tickets*Cost))
 	},[cost,minTickets])
+	
+	function loadContract()
+	{
+		navigate(add)
+	}
+
 	const deploy = <><i className="pi pi-bolt" /> Deploy </>
 	const load = <> <i className="pi pi-download" /> Load </>
-	
+
 	return(
 		<Accordion >
 								<AccordionTab header={deploy}>
@@ -41,9 +48,9 @@ export default function Actions(){
 								<InputMask
 								id="cost"
 								unmask={false}
-								mask="9.999999"
+								mask="99.999999"
 								slotChar='0'
-								placeholder="0.000000"
+								placeholder="00.000000"
 								value={cost}
 								className="width100"
 								onChange={(e) => setCost(e.value)}/>
@@ -57,9 +64,9 @@ export default function Actions(){
 								id="fees"
 								value={fees}
 								unmask={false}
-								mask="9.999999"
+								mask="99.999999"
 								slotChar='0'
-								placeholder="0.000000"
+								placeholder="00.000000"
 								className="width100"
 								onChange={(e) => setFees(e.target.value)}
 								/>
@@ -91,9 +98,12 @@ export default function Actions(){
 									  onChange={(e) => setAdd(e.target.value)} width="100%" />
 									   <label htmlFor="address">Address</label>
 									</div>
-									  <Button  className="p-button-raised p-button-text" style={{width:'100%'}}
+									  <Button  className="p-button-raised p-button-text" 
+									  style={{width:'100%'}}
 									  label="Load from address"
-									  icon="pi pi-download" > 
+									  icon="pi pi-download" 
+									  onClick={loadContract}
+									  > 
 
 									  </Button>
 								</AccordionTab>

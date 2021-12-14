@@ -22,10 +22,7 @@ function TitleCard(){
 			The instances here are deployed on <b> ropsten test net</b> no real ether are used.
 
 		</p>
-		<span>
-		<Button label="Connect Wallet" icon="pi pi-wallet" />
-		{/* <Button label = "Tutorial" icon="pi pi-play" class="p-button-raised  p-button-rounded" ></Button> */}
-		</span>
+		
 		</div>
 		<Image src="contract.jpg" alt="Illustration" />
 		</div>

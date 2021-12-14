@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import ConnectWallet from './connectWallet'
 function Navbar(){
 	return(
 		 <header> 
 		 <Link to="/">
-		  <h1> <span > SMART</span><span className="blue">Contracts </span> </h1>
+		  <h1>
+		  	<code>
+		  	 <span> SMART</span><span className="blue">CONTRACTS </span> 
+		  	</code>
+		  </h1>
 		  </Link>
+		  <ConnectWallet />
 		  </header>
 		)
 }
