@@ -1,5 +1,6 @@
 import {useParams} from 'react-router-dom';
-import complied from '../contracts/lotto/lotto.json'
+import complied from '../contracts/lotto/lotto.json';
+import Details from '../components/lotto/instancedetails'; 
 import {useState,useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import Banner from '../components/banner';
@@ -47,25 +48,25 @@ export default function LoadLotto(){
 
 
 
-		const ifLoaded = 		<>
-								<Banner bg={bg} title="lotto contract" address={id}/>
-								<main className="main">
-								<div style={{width: '60%', margin:'1rem'}}>
-								
-												<Card title="About">
-													Deploy a lottery smart contract. The manager deploys the contract sets the ticket size, max_fees, min prize pool, and 
-													gets compensated by min(5%, max_fees) . People can ask for a refund anytime before the lottery is drawn.
-												</Card>
-											</div>
-											<div style={{width: '40%',margin:'1rem'}}>
-											
-											<Card title="Actions" >
-											<Actions />
-
-											</Card>
-											</div>
-								</main>
-								</>
+		const ifLoaded = 		!!contract && (<>
+										<Banner bg={bg} title="lotto contract" address={id}/>
+										<main className="main">
+										<div style={{width: '60%', margin:'1rem'}}>
+										
+														<Card title="About">
+														<Details contract={contract}/>
+														</Card>
+													</div>
+													<div style={{width: '40%',margin:'1rem'}}>
+													
+													<Card title="Actions" >
+		
+													<Actions />
+		
+													</Card>
+													</div>
+										</main>
+										</>)
 		const loading = <>
 								Loading Contract at {id}
 						</>
