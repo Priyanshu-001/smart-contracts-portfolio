@@ -6,7 +6,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import Banner from '../components/banner';
 import {Card} from 'primereact/card';
 import {Button} from 'primereact/button';
-import Actions from '../components/lotto/actions.js';
+import Actions from '../components/lotto/actionloaded.js';
 import {initWeb3} from '../app/auth';
 export default function LoadLotto(){
 
@@ -15,11 +15,21 @@ export default function LoadLotto(){
 
 		let [contract,setContract] = useState(null)
 		let [loadState, setLoadState] = useState('loading')
+		let [victory, setVictory] = useState(false)
+
 		let dispatch = useDispatch();
 		const {id} = useParams();
 		const bg = 'radial-gradient(circle, rgb(255 61 174) 0%, rgb(196 20 172) 100%)'
-		function getContract()
+		async function getContract()
 		{	let Contract = ''
+			let netId = await web3.eth.net.getId();
+				
+				if(netId === 1)
+					{
+						setLoadState(()=>"mainet")
+						return 
+
+					}
 			try{
 				Contract = new web3.eth.Contract(complied.abi,id)
 				setContract(()=>(Contract))
@@ -31,8 +41,11 @@ export default function LoadLotto(){
 			}
 		}
 		useEffect(()=>{
-			console.log(connected)
-			if(connected && !!web3) 
+			if(!window.ethereum && !window.web3)
+				{
+					setLoadState(()=>'meta')
+				}
+			else if(connected && !!web3) 
 			 	getContract()
 			 else{
 			 	setLoadState(()=>'signin')
@@ -42,10 +55,7 @@ export default function LoadLotto(){
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		},[connected && web3])
 		let currentElement
-		// useEffect(()=>{
-		// 		selectDisplayElement()
-		// 			},[loadState])
-
+	
 
 
 		const ifLoaded = 		!!contract && (<>
@@ -61,7 +71,7 @@ export default function LoadLotto(){
 													
 													<Card title="Actions" >
 		
-													<Actions />
+													<Actions contract={contract} />
 		
 													</Card>
 													</div>
@@ -76,7 +86,9 @@ export default function LoadLotto(){
 								<ul>
 									<li>Try reloading the page.</li>
 									<li>Check if the contract exists at the given address.</li>
-									<li>If all that fails, then I dunno man</li>
+									<li>Check if metamask is configured correctly</li>
+									<li>Check console for error</li>
+									<li>If all that fails, then I dunno man maybe report the bug</li>
 								</ul>
 							</p>
 					  </>
@@ -91,7 +103,21 @@ export default function LoadLotto(){
 								</span>
 							</main>
 					   </>
-
+		const mainnet = <>
+							<main> 
+								<h1> Please don't load from the main net</h1>
+								<h2> Switch to Ropsten/Rinkeby Testnet using MetaMask </h2>
+								<h2> This site was designed for learning/testing purpose only. </h2>
+								
+							</main>
+						</>
+		const meta = <>
+						<main>
+							<h1>Please install metamask extension </h1>
+							<h2> Available for most major browsers </h2>
+							 <a href="https://metamask.io/" target="metamask" style={{color:'blue'}} > <i className="pi pi-external-link" /> Get metamask </a>
+						</main>
+					</>
 		function selectDisplayElement(){
 			switch(loadState){
 					case 'error':{
@@ -118,7 +144,7 @@ export default function LoadLotto(){
 		return(
 			<>	
 
-				{loadState==='error'?error:loadState==='loading'?loading:loadState=='done'?ifLoaded:signin}
+				{loadState==='meta' ? meta : loadState === 'mainet'? mainnet: loadState==='error'?error:loadState==='loading'?loading:loadState==='done'?ifLoaded:signin}
 			</>
 		)
 
