@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# Smart Contracts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## Note
+This project was made for learning/testing purposes only. without any other intention.
 
 ## Available Scripts
 
