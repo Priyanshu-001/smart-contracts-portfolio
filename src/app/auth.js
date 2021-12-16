@@ -2,8 +2,8 @@ import { createSlice,createAsyncThunk } from '@reduxjs/toolkit';
 import Web3 from 'web3';
 
 const initialState = {
-	account: '',
 	web3: null,
+	account: null,
 	loggedIn: false,
 }
 
@@ -17,9 +17,10 @@ export const authSlice = createSlice({
 				state.web3 = null
 				state.loggedIn = false
 			},
-			connected: (state,payload)=>{
-				state.web3 = payload.web3
-				state.account =  payload.account
+			connected: (state,action)=>{
+				state.web3 = action.payload.web3
+				state.account =  action.payload.currentAccount
+				// console.log(payload)
 				state.loggedIn = true
 			},
 			initWeb3:state=>{
