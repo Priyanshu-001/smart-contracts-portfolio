@@ -67,13 +67,13 @@ export default function MainPage()
 		<>
 		<TitleCard />
 		<PlayGround/>
-		<h1>{userAccount}</h1>
-		<h2> Ticket cost = {ticketCost} wei</h2>
-		<button id="enable" onClick={getMetaMask}> Enable</button>
-		<button id = "ticket_cost" onClick={getTicketCost}> 💸Cost</button>
-		<button id = "getManager" onClick={getManager}> manager</button>
-		<button id = "ticket_refund" onClick={getRefund}> Refund</button>
-		<button id = "buy_ticket" onClick={buyTicket}> Buy Ticket</button>
+		{/* <h1>{userAccount}</h1> */}
+		{/* <h2> Ticket cost = {ticketCost} wei</h2> */}
+		{/* <button id="enable" onClick={getMetaMask}> Enable</button> */}
+		{/* <button id = "ticket_cost" onClick={getTicketCost}> 💸Cost</button> */}
+		{/* <button id = "getManager" onClick={getManager}> manager</button> */}
+		{/* <button id = "ticket_refund" onClick={getRefund}> Refund</button> */}
+		{/* <button id = "buy_ticket" onClick={buyTicket}> Buy Ticket</button> */}
 
 		
 		</>
