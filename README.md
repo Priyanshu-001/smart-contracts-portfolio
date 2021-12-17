@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Smart Contracts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## About
+Project contains few smart contracts connected with react frontend that allows user to load and deploy contracts on test networks.
+This project was made for learning/testing purposes only, please do not deploy on mainet.
+Requires metamask.
+
+## Current Contracts
+* loto
+  *   Manager deploys lotto contract
+  *   sets ticket prize, min tickets, fees
+  *   The contract pool must reach target prize pool for the manager to draw and recieve fees
+  *   Participants can buy and ask for refund anytime before results are announced
 
 ## Available Scripts
 
