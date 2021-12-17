@@ -14,7 +14,7 @@ export default function Actions(){
 	let navigate = useNavigate()
 
 	let [add,setAdd] = useState('')
-	let [prizePool,setPrizePool] = useState(0n)
+	let [prizePool,setPrizePool] = useState('0')
 	let [minTickets, setMinTickets] = useState(5)
 	let [cost, setCost] = useState(0)
 	let [fees, setFees] = useState(0)
@@ -31,7 +31,7 @@ export default function Actions(){
 		let Cost = BigInt(cost*1e6)
 		Cost = Cost*tenE12
 		let Tickets = BigInt(minTickets)
-		setPrizePool(()=>(Tickets*Cost))
+		setPrizePool(()=>(String(Tickets*Cost)))
 	},[cost,minTickets])
 	
 
@@ -67,8 +67,8 @@ export default function Actions(){
 
 				let Tickets = BigInt(minTickets)
 				let bytecode =  complied.hexByteCode
-				// let bytecode = '0x' + JSON.stringify(complied.byteCode)
-				toast.current.show({severity:'info', summary:'This may take upto a minute',
+	
+				toast.current.show({severity:'info', summary:'This may take several minutes',
 					sticky:true, 
 					detail:'Check with metamask for the status fo the transaction'})
 				try{
@@ -117,7 +117,7 @@ export default function Actions(){
 									<h2>Min Prize Pool</h2>
 									{/* <code>min_ticket * ticket_prize</code> */}
 									<code>
-									<h2>{(prizePool).toString().slice(0,(prizePool).toString().length-18)|| 0}.{prizePool.toString().slice(prizePool.toString().length-18,prizePool.toString().length-11)||0} ether</h2>
+									<h2>{Web3.utils.fromWei(prizePool,'ether')} ether</h2>
 									</code>
 								</div>
 								<label htmlFor="cost" className="fixedLabel" >Ticket Price</label>
@@ -166,6 +166,7 @@ export default function Actions(){
     							suffix=" Tickets"/>
     							
 									<Button icon="pi pi-bolt" 
+									disabled={deploying}
 									className={"p-button-raised width100 "+ ( deploying? " ": "p-button-text") }
 									label={deploying ?  <><i className="pi pi-spin pi-spinner"/> Deploying</> :"Deploy Contract"}
 									onClick={deployContract}

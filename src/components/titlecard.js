@@ -20,8 +20,12 @@ function TitleCard(){
 			The colllection of smart contracts here are meant to be resume projects 
 			and should <b> NOT </b> be deployed on mainet.
 			The instances here are deployed on <b> ropsten test net</b> no real ether are used.
-
 		</p>
+		<br/>
+		<br/>
+		<a href="https://metamask.io/" target="metamask" style={{color:'blue', fontSize:'1.2rem'}}> 
+			<i className="pi pi-external-link"/>  Get Metamask
+		</a>
 		
 		</div>
 		<Image src="contract.jpg" alt="Illustration" />

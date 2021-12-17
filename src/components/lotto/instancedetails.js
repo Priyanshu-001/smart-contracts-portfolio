@@ -13,16 +13,19 @@ export default function Details({address,contract}){
 	 let [winner,setWinner] = useState(null)
 	 let [winningAmt,setWinningAmt] = useState(0)
 	 async function getWinner(){
+	 	console.log('winner')
 	 	let event = await contract.getPastEvents(
 	 		'drawn',
-	 		{fromBLock:0, toBlock: 'latest'}
+	 		{ fromBlock: 0, toBlock: 'latest'}
 	 		)
-	 	
+
+	 	console.log(event)
 	 	if(event.length > 0)
 	 		{
 	 		event = event[0].returnValues
 	 		setWinner(()=>event.winner)
-			setWinningAmt(()=>event.prize)}
+			setWinningAmt(()=>event.prize)
+		}
 	 }
 	 async function readGenisis()
 	 {
@@ -30,7 +33,6 @@ export default function Details({address,contract}){
 	 		'genisis',
 	 		{ fromBlock: 0, toBlock: 'latest'}
 	 		)
-	 	console.log(event)
 	 	if(event.length >0)
 		 	{			
 		 				event = event[0].returnValues
@@ -45,8 +47,15 @@ export default function Details({address,contract}){
 	 }
 	 async function getStatus(){
 	 	let status = await contract.methods.current_state().call()
-	 	console.log(status)
-	 	setStatus(()=>!status)
+	 
+	 	setStatus(()=>status==1)
+	 	if(status == 1)
+	 		{
+	 		getWinner()
+	 		}
+	 	else{
+	 		console.log('no winner')
+	 	}
 	 }
 	async function fnCalls() {
 
@@ -76,12 +85,6 @@ export default function Details({address,contract}){
 	 useEffect(()=>{
 	 	init()
 	 },[])
-	 useEffect(()=>{
-	 	if(status)
-	 		{
-	 			getWinner()
-	 		}
-	 },[status])
 
 	 let targetInfo =( <span>
 	 					<i className="pi " style={{'max-width': '16ch'}}>
@@ -92,9 +95,10 @@ export default function Details({address,contract}){
 			
 		return(
 			<>	
-				<KeyValues heading = {'Status: '} amt={status? 'Winner Announced':'Active (Refund and sale of tickets allowed'} />				
-				{!!winner ? <KeyValues heading = {'Winner '} amt={winner} /> :''}
-				{!!winner ? <KeyValues heading ={'Winning Prize'}amt ={winningAmt} />: '' }
+				<KeyValues heading = {'Status: '} amt={status? 'Winner Announced':'Active (Refund and sale of tickets allowed'} />
+
+				{status ? <KeyValues heading = {'Winner '} amt={winner} /> :''}
+				{status ? <KeyValues heading ={'Winning Prize'}amt ={winningAmt} suffix=" wei"/>: '' }
 				<KeyValues heading = {'Date Created:'} amt={created} />
 				<KeyValues heading = {'Ticket Cost:'} amt={ticketCost} suffix= ' wei' />
 				<KeyValues heading = {'Tickets Sold:'} amt={ticketsSold} />

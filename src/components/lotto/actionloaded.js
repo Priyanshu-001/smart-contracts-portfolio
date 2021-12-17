@@ -110,7 +110,7 @@ export default function ActionLoaded({contract}){
 			
 			>
 			<div>
-				{account}
+				
 				<Button icon="pi pi-money-bill" 
 				label={ purchasing?  <>  <i className="pi pi-spin pi-spinner"/> Initiated </>: "Buy Ticket"} 
 				onClick ={buyTicket}
@@ -141,7 +141,7 @@ export default function ActionLoaded({contract}){
 			>
 			<Button icon = "pi pi-file" 
 			onClick={drawResults}
-
+			disabled={result}
 			label={result ? <> <i className="pi pi-spin pi-spinner"/> Initiated </> :"Draw Results"} 
 			className={result ?"p-button-raised width100": "p-button-raised p-button-text width100"}
 			/>
