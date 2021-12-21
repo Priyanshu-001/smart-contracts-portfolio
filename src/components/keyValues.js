@@ -1,4 +1,4 @@
-import { ProgressSpinner } from 'primereact/progressspinner';
+// import { ProgressSpinner } from 'primereact/progressspinner';
 export default function keyValues({heading, amt,sub,suffix}){
 	const valuePanel = (	<>
 								<code> {amt} {suffix} </code>

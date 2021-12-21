@@ -15,7 +15,7 @@ export default function LoadLotto(){
 
 		let [contract,setContract] = useState(null)
 		let [loadState, setLoadState] = useState('loading')
-		let [victory, setVictory] = useState(false)
+		// let [victory, setVictory] = useState(false)
 
 		let dispatch = useDispatch();
 		const {id} = useParams();
@@ -54,7 +54,7 @@ export default function LoadLotto(){
 			
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		},[connected && web3])
-		let currentElement
+
 	
 
 
@@ -118,28 +118,6 @@ export default function LoadLotto(){
 							 <a href="https://metamask.io/" target="metamask" style={{color:'blue'}} > <i className="pi pi-external-link" /> Get metamask </a>
 						</main>
 					</>
-		function selectDisplayElement(){
-			switch(loadState){
-					case 'error':{
-						currentElement = error
-						break
-					}
-					case 'loading':{
-						currentElement = loading
-						break
-					}
-					case 'done':{
-						currentElement = ifLoaded
-						break
-					}
-					case 'signin':{
-						currentElement = signin
-						console.log("here")
-						console.log(signin)
-					}
-
-				}
-		}
 
 		return(
 			<>	

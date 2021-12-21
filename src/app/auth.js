@@ -1,4 +1,4 @@
-import { createSlice,createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import Web3 from 'web3';
 
 const initialState = {

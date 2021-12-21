@@ -48,7 +48,9 @@ export default function Details({address,contract}){
 	 async function getStatus(){
 	 	let status = await contract.methods.current_state().call()
 	 
+	 	// eslint-disable-next-line
 	 	setStatus(()=>status==1)
+	 	// eslint-disable-next-line
 	 	if(status == 1)
 	 		{
 	 		getWinner()
@@ -84,15 +86,16 @@ export default function Details({address,contract}){
 	 }
 	 useEffect(()=>{
 	 	init()
+	 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	 },[])
 
-	 let targetInfo =( <span>
-	 					<i className="pi " style={{'max-width': '16ch'}}>
-	 						  The prize pool must grow to the above quantity before manager can draw lottery.
-	 					</i>
-	 	
-	 					</span>)
-			
+	 // let targetInfo =( <span>
+	 // 					<i className="pi " style={{'max-width': '16ch'}}>
+	 // 						  The prize pool must grow to the above quantity before manager can draw lottery.
+	 // 					</i>
+	 // 	
+	 // 					</span>)
+		// 	
 		return(
 			<>	
 				<KeyValues heading = {'Status: '} amt={status? 'Winner Announced':'Active (Refund and sale of tickets allowed'} />

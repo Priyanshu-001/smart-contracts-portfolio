@@ -1,5 +1,5 @@
 import { Image } from 'primereact/image';
-import { Button } from 'primereact/button';
+// import { Button } from 'primereact/button';
 function TitleCard(){
 	return(
 		<div className="title">

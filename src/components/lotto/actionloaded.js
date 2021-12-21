@@ -1,10 +1,10 @@
 import {useState,useRef} from 'react'
-import {useSelector,useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import { Accordion, AccordionTab } from 'primereact/accordion';
-import {Tooltip} from 'primereact/tooltip';
+// import {Tooltip} from 'primereact/tooltip';
 import {Toast} from 'primereact/toast';
 import {Button} from 'primereact/button';
-import Web3 from 'web3';
+// import Web3 from 'web3';
 
 export default function ActionLoaded({contract}){
 
@@ -47,6 +47,7 @@ export default function ActionLoaded({contract}){
 		try{
 			let reciept = await contract.methods.draw().send({from:account})
 			toast.current.show({severity: 'success', summary: 'Results Drawn Succesfully', life:5000})
+			console.log(reciept)
 		}
 		catch(error)
 		{
@@ -80,6 +81,7 @@ export default function ActionLoaded({contract}){
 		setRefund(()=>true)
 		try{
 			let reciept = await contract.methods.ticket_refund().send({from: account})
+			console.log(reciept)
 			toast.current.show({severity: 'success', summary: 'Refund Successful', life:5000})
 		}
 		catch(error)
