@@ -28,7 +28,7 @@ function TitleCard(){
 		</a>
 		
 		</div>
-		<Image src="contract.jpg" alt="Illustration" />
+		<Image src="contract.jpg" imageClassName="coverImg"  alt="Illustration" style={{maxWidth:'90vw'}} />
 		</div>
 	)
 }

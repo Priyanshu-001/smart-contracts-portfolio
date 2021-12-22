@@ -19,7 +19,8 @@ export default function LoadLotto(){
 
 		let dispatch = useDispatch();
 		const {id} = useParams();
-		const bg = 'radial-gradient(circle, rgb(255 61 174) 0%, rgb(196 20 172) 100%)'
+
+		const bg = 'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))'
 		async function getContract()
 		{	let Contract = ''
 			let netId = await web3.eth.net.getId();
@@ -61,20 +62,20 @@ export default function LoadLotto(){
 		const ifLoaded = 		!!contract && (<>
 										<Banner bg={bg} title="lotto contract" address={id}/>
 										<main className="main">
-										<div style={{width: '60%', margin:'1rem'}}>
+										<div className="details">
 										
 														<Card title="About">
 														<Details contract={contract}/>
 														</Card>
-													</div>
-													<div style={{width: '40%',margin:'1rem'}}>
+										</div>
+										<div className="actions">
 													
 													<Card title="Actions" >
 		
 													<Actions contract={contract} />
 		
 													</Card>
-													</div>
+										</div>
 										</main>
 										</>)
 		const loading = <>

@@ -4,13 +4,13 @@ import Actions from '../components/lotto/actions.js';
 
 
 export  default function lotto(){
-	const bg = 'radial-gradient(circle, rgb(255 61 174) 0%, rgb(196 20 172) 100%)'
+	const bg = 'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))'
 	
 			return (
 			<>
 				<Banner bg={bg} title="lotto contract"/>
 				<main className="main">
-					<div style={{width: '60%', margin:'1rem'}}>
+					<div className="details">
 		
 						<Card title="About">
 							Deploy/load a lotto smart contract. The manager deploys the contract sets the ticket size, max_fees, min prize pool, and 
@@ -28,7 +28,7 @@ export  default function lotto(){
 							</p>
 						</Card>
 					</div>
-					<div style={{width: '40%',margin:'1rem'}}>
+					<div className="actions">
 					
 					<Card title="Actions" >
 					<Actions />
