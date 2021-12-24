@@ -9,8 +9,8 @@ const initialState ={
 			image:'/lotto.png',
 			bg:'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))'
 		},
-		'assest_guardian': {
-			name:'assest_guardian',
+		'guardian': {
+			name:'guardian',
 			displayName: 'Assets Guardian Contract',
 			information: 'Set up a contract to decide when your benificaries recieve ethers, how much and at what intervals. Benificaries will be able to withdraw ethers once the contract releases their share. All benificaries will recieve same amount of ether.',
 			image: '/guardian.jpg',
