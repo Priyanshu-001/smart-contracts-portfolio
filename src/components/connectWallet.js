@@ -90,10 +90,15 @@ export default function ConnectWallet(){
 			}
 			
 	}
-	function accept(){
+	function accept(val=true){
 		setAccepted(()=>{
-			return cmd1 &&cmd2 && cmd3
+			return cmd1 &&cmd2 && cmd3 && val
 		})
+		if(!(cmd1 &&cmd2 && cmd3 && val))
+			toast.current.show({severity:'error',summary:'There is no getting away from this'})
+		else
+			toast.current.show({severity:'success',summary:'Remember your promise'})
+
 	}
 	const footer = (
 		<>
@@ -102,7 +107,13 @@ export default function ConnectWallet(){
 		)
 	return(
 		<>
-		<Dialog visible={!accepted} header="I promise to " style={{width: '60vw', fontSize: '1.3rem'}} footer={footer}>
+		<Dialog visible={!accepted} 
+		maximizable modal header="I promise to " 
+		className="diag" 
+		style={{width: '60vw', fontSize: '1.3rem'}} 
+		footer={footer}
+		onHide={()=>accept(false)}
+		>
 		<span>
 		<Checkbox onChange={e=>setCmd1(()=>e.checked)} checked={cmd1} style={{margin:'0 1rem', marginBottom: '0.3rem'}} />
 		 Deploy and load contracts only from testnets like ROPSTEN/RINKEBY or local Ganache Server, etc </span>
