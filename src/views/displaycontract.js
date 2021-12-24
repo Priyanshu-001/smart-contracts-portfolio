@@ -15,18 +15,16 @@ export  default function Lotto(){
 		
 			return (
 			<>
-				<Banner bg={bg} title="lotto contract"/>
+				<Banner bg={bg} title={isThere.displayName}/>
 				<main className="main">
 					<div className="details">
 								<About />
 					
 					</div>
 					<div className="actions">
-					
-					<Card title="Actions" >
-					<Actions />
-
-					</Card>
+						<Card title="Actions" >
+							<Actions />
+						</Card>
 					</div>
 				</main>
 			</>
