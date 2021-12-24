@@ -1,15 +1,17 @@
 import {useParams} from 'react-router-dom';
-import complied from '../contracts/lotto/lotto.json';
-import Details from '../components/lotto/instancedetails'; 
 import {useState,useEffect} from 'react';
 import {useSelector,useDispatch} from 'react-redux';
 import Banner from '../components/banner';
 import {Card} from 'primereact/card';
 import {Button} from 'primereact/button';
-import Actions from '../components/lotto/actionloaded.js';
 import {initWeb3} from '../app/auth';
-export default function LoadLotto(){
+import NoContract from '../components/noContract';
 
+export default function LoadContract(){		
+		let {contractName} = useParams()
+		const {id} = useParams();
+
+		let isThere = useSelector(state=>state.contract.info[contractName])
 		let connected = useSelector(state=>state.auth.loggedIn )
 		let web3 = useSelector(state=>state.auth.web3)
 
@@ -18,9 +20,19 @@ export default function LoadLotto(){
 		// let [victory, setVictory] = useState(false)
 
 		let dispatch = useDispatch();
-		const {id} = useParams();
+		let Actions = null
+		let Details = null
+		let complied = null
 
 		const bg = 'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))'
+
+		if(!!isThere)
+			{	
+				Actions = require(`../components/${isThere.name}/actionloaded.js`).default;
+				Details = require(`../components/${isThere.name}/instancedetails.js`).default;
+				complied = require(`../contracts/${isThere.name}/${isThere.name}.json`);
+
+			}
 		async function getContract()
 		{	let Contract = ''
 			let netId = await web3.eth.net.getId();
@@ -56,11 +68,9 @@ export default function LoadLotto(){
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		},[connected && web3])
 
-	
-
 
 		const ifLoaded = 		!!contract && (<>
-										<Banner bg={bg} title="lotto contract" address={id}/>
+										<Banner bg={bg} title={isThere.displayName} address={id}/>
 										<main className="main">
 										<div className="details">
 										
@@ -123,7 +133,7 @@ export default function LoadLotto(){
 		return(
 			<>	
 
-				{loadState==='meta' ? meta : loadState === 'mainet'? mainnet: loadState==='error'?error:loadState==='loading'?loading:loadState==='done'?ifLoaded:signin}
+				{!isThere?  <NoContract contractName={contractName} /> : loadState==='meta' ? meta : loadState === 'mainet'? mainnet: loadState==='error'?error:loadState==='loading'?loading:loadState==='done'?ifLoaded:signin}
 			</>
 		)
 

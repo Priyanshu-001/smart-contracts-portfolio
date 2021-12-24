@@ -5,12 +5,12 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import LoadLotto from './views/loadlotto';
+import LoadContract from './views/loadcontract';
 import './index.css';
 import App from './App';
 import MainPage from  './views/MainPage';
 import reportWebVitals from './reportWebVitals';
-import Lotto from './views/lotto'
+import Lotto from './views/displaycontract.js'
 
 import { store } from './app/store'
 import { Provider } from 'react-redux'
@@ -21,9 +21,9 @@ ReactDOM.render(
   <BrowserRouter>
   <Routes>
     <Route path='/' element = {<App/>} >
-      <Route path="lotto/:id" element = {<LoadLotto/>} />
+      <Route path=":contractName/:id" element = {<LoadContract/>} />
       <Route path="/" element = {<MainPage/>} />
-      <Route path="lotto" element = {<Lotto/>} />
+      <Route path={`:contractName`} element = {<Lotto/>} />
     </Route>
 
   </Routes>
