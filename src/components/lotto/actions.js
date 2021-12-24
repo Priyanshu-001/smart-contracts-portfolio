@@ -111,7 +111,7 @@ export default function Actions(){
 		<>
 		<Accordion >
 								<AccordionTab header={deploy}>
-							<div style={{padding: '0 2.8rem'}}>
+							<div className="infoWrapper">
 								<div className="info">
 								
 									<h2>Min Prize Pool</h2>
@@ -158,8 +158,9 @@ export default function Actions(){
 								onValueChange={(e) => setMinTickets(e.value)} showButtons 
 								buttonLayout="horizontal"
 								className="width100"
+								inputClassName="counterExculsive"
     							decrementButtonClassName="p-button-text p-button" 
-    							incrementButtonClassName="p-button-text p-button" 
+    							incrementButtonClassName="p-button-text p-button " 
     							step={1}
     							min={5}
     							incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" 
