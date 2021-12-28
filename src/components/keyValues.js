@@ -11,7 +11,7 @@ export default function keyValues({heading, amt,sub,suffix}){
 
 		)
 	return(
-				<div style={{'display': 'flex','justifyContent':'space-between', 'width': '100%'}}>
+				<div className="keyVal">
 					<h3>
 						{heading}
 					</h3>
