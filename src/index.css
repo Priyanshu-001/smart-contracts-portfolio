@@ -135,9 +135,23 @@ width: 70%;
   width: 100%;
   }
 
+.keyVal{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+.contractItem{
+   margin: 0.2rem 0.2rem;
+}
+
 @media only screen and (max-width: 1038px )
 { .counterExculsive{
   width: 90%;
+  }
+  .keyVal{
+    flex-direction: column;
+    align-items: center;
   }
   .title{
       flex-direction: column-reverse;
@@ -164,12 +178,13 @@ width: 70%;
     width: 100%;
     margin:0px;
     padding:0.1rem;
+
   }
   .resposiveWrapper{
     width: 100%;
     margin: 0px;
     display: flex;
-    /*flex-direction: row;*/
+    flex-direction: row;
     overflow-x: scroll;
   }
   .Bookmarks{
