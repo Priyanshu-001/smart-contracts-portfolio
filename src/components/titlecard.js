@@ -1,4 +1,5 @@
 import { Image } from 'primereact/image';
+import { Button } from 'primereact/button';
 // import { Button } from 'primereact/button';
 function TitleCard(){
 	return(
@@ -21,6 +22,13 @@ function TitleCard(){
 			and should <b> NOT </b> be deployed on mainet.
 			The instances here are deployed on <b> ropsten test net</b> no real ether are used.
 		</p>
+		<br/>
+		<Button label="View Source Code on Github" 
+		className="p-button-raised p-button-text p-button-plain"
+		icon="pi pi-github"
+		onClick= {() => window.location.href='https://github.com/Priyanshu-001/smart-contracts-portfolio'}
+
+		 />
 		<br/>
 		<br/>
 		<a href="https://metamask.io/" target="metamask" style={{color:'blue', fontSize:'1.2rem'}}> 

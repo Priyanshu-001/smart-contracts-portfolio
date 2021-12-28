@@ -1,4 +1,4 @@
-import { Card } from 'primereact/card';
+// import { Card } from 'primereact/card';
 // import { Image } from 'primereact/image';
 // import { Link } from 'react-router-dom';
 // import { Button } from 'primereact/button';
@@ -16,7 +16,6 @@ function PlayGround()
 		 	<h2>  <i className= "pi pi-list"> </i> Contract List  </h2>
 		 	<div className="resposiveWrapper">
 		 	
-		 	<Card  width="100%"> 
 		 	{contracts.map((contract,id)=>(<ContractItem 
 		 				img={contract.image}
 		 				link={contract.name}
@@ -25,7 +24,6 @@ function PlayGround()
 		 				key={id}
 		 			 	 />))}
 		 				
-		 	</Card>
 		 	</div>
 
 		 </div>
