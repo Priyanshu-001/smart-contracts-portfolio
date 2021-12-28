@@ -11,14 +11,14 @@ import {Toast} from 'primereact/toast';
 import { Button } from 'primereact/button';
 import complied from '../../contracts/lotto/lotto.json'
 export default function Actions(){
-	let navigate = useNavigate()
+	const navigate = useNavigate()
 
-	let [add,setAdd] = useState('')
-	let [prizePool,setPrizePool] = useState('0')
-	let [minTickets, setMinTickets] = useState(5)
-	let [cost, setCost] = useState(0)
-	let [fees, setFees] = useState(0)
-	let [deploying,setDeploying] = useState(false)
+	const [add,setAdd] = useState('')
+	const [prizePool,setPrizePool] = useState('0')
+	const [minTickets, setMinTickets] = useState(5)
+	const [cost, setCost] = useState(0)
+	const [fees, setFees] = useState(0)
+	const [deploying,setDeploying] = useState(false)
 
 	let web3 = useSelector(state=>state.auth.web3)
 	let account = useSelector(state=>state.auth.account)
@@ -77,7 +77,7 @@ export default function Actions(){
 						data:bytecode, 
 						arguments: [String(Cost),String(Tickets),String(Fees)]
 					}).send({from: account})
-					console.log(instance._address)
+					
 					toast.current.show({severity:'success',summary:'Great Success', detail:'Contract Mined Successfully redirecting you there'})
 					setTimeout(()=>navigate(instance._address),3000)
 				}

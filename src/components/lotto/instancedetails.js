@@ -1,7 +1,7 @@
 import {useState,useEffect } from 'react';
 import KeyValues from '../keyValues';
 import {Button} from 'primereact/button';
-export default function Details({address,contract}){
+export default function Details({contract}){
 
 	 let [target,setTarget] = useState(null);
 	 let [manager,setManager] = useState(null);
