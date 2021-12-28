@@ -31,7 +31,7 @@ export default function LoadContract(){
 				Actions = require(`../components/${isThere.name}/actionloaded.js`).default;
 				Details = require(`../components/${isThere.name}/instancedetails.js`).default;
 				complied = require(`../contracts/${isThere.name}/${isThere.name}.json`);
-
+				console.log('hi')
 			}
 		async function getContract()
 		{	let Contract = ''
