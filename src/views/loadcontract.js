@@ -35,7 +35,7 @@ export default function LoadContract(){
 			}
 		async function getContract()
 		{	let Contract = ''
-			let netId = await web3.eth.net.getId();
+			let netId = await web3.eth.getChainId();
 				
 				if(netId === 1)
 					{
