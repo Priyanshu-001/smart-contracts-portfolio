@@ -93,7 +93,7 @@ export default function Actions()
 				toast.current.show({severity: 'error' , summary:'Please Connect metamask'})
 			}
 		else{
-			let netId = await web3.eth.net.getChainId();
+			let netId = await web3.eth.getChainId();
 			if(netId === 1)
 				{
 					toast.current.show({severity:'error', 
