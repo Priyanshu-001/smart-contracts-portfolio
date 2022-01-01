@@ -70,7 +70,7 @@ export default function ConnectWallet(){
 				let netId = await web3.eth.net.getId();
 				
 				if(netId === 1)
-					{
+					{ alert('chainId= '+ netId)
 						toast.current.show({severity:'error', 
 							sticky: true,
 							summary:'PLease change to network to testnet',
