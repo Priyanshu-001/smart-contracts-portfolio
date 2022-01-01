@@ -67,10 +67,10 @@ export default function ConnectWallet(){
 				if(!currentAccount || !web3) //no metamask detected exit
 					return
 				//Check against mainet deployment
-				let netId = await web3.eth.net.getId();
+				let netId = await web3.eth.getChainId();
 				
 				if(netId === 1)
-					{ alert('chainId= '+ netId)
+					{ 
 						toast.current.show({severity:'error', 
 							sticky: true,
 							summary:'PLease change to network to testnet',
