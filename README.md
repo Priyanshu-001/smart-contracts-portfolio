@@ -14,7 +14,9 @@ Requires metamask.
   *   sets ticket prize, min tickets, fees
   *   The contract pool must reach target prize pool for the manager to draw and recieve fees
   *   Participants can buy and ask for refund anytime before results are announced
-
+* Assest cutodian
+  *   Transfer eth to a smart contract while deploying
+  *   Contract releases the funds to your benifacries in fixed intervals after a cuttoff date
 ## Available Scripts
 
 In the project directory, you can run:
