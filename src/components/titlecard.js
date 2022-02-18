@@ -24,7 +24,7 @@ function TitleCard(){
 		</p>
 		<br/>
 		<Button label="View Source Code on Github" 
-		className="p-button-raised p-button-text p-button-plain"
+		className="p-button-raised  p-button-plain"
 		icon="pi pi-github"
 		onClick= {() => window.location.href='https://github.com/Priyanshu-001/smart-contracts-portfolio'}
 

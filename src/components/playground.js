@@ -18,11 +18,13 @@ function PlayGround()
 		 	
 		 	{contracts.map((contract,id)=>(<ContractItem 
 		 				img={contract.image}
-		 				link={contract.name}
+		 				link={contract.link}
 		 				heading={contract.displayName}
 		 				info={contract.information}
 		 				key={id}
+		 				code={contract.code}
 		 			 	 />))}
+		 				}
 		 				
 		 	</div>
 
