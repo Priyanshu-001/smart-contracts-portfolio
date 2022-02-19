@@ -22,7 +22,6 @@ const initialState ={
 		},
 		'simple_dao': {
 			name:'simple_dao',
-			link:'simple_dao',
 			displayName: 'Simple DAO',
 			information: 'Introduce proposal,allocate ether for them,vote on them, proposals are passed with a simple majority. Caller can claim eth to carry out proposals.',
 			image: '/dao.png',

@@ -24,7 +24,7 @@ function PlayGround()
 		 				key={id}
 		 				code={contract.code}
 		 			 	 />))}
-		 				}
+		 				
 		 				
 		 	</div>
 
