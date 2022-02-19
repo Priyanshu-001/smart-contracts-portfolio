@@ -9,6 +9,7 @@ This project was made for learning/testing purposes only, please do not deploy o
 Requires metamask.
 
 ## Current Contracts
+
 * loto
   *   Manager deploys lotto contract
   *   sets ticket prize, min tickets, fees
@@ -17,6 +18,14 @@ Requires metamask.
 * Assest custodian
   *   Transfer eth to a smart contract while deploying
   *   Contract releases the funds to your benifacries in fixed intervals after a cuttoff date
+* SimpleDao (frontend pending)
+  *    Introduce proposal,allocate ether for them,vote on them, proposals are passed with a simple majority.
+  *    Caller can claim eth to carry out proposals.
+  *    New Members can join by initiating a join proposal, on which current members vote on.
+  *    Ether can be added using add_eth function
+  *    The proposals are itself smart contracts deployed by the DAO
+  *    Can be used to represent charities, RWAs.
+ 
 ## Available Scripts
 
 In the project directory, you can run:
