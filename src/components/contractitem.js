@@ -7,7 +7,7 @@ export default function contractItem({img,heading,info,link,code})
 							 <Button label="Deploy / Load" style={{marginRight:'1rem', marginBottom:'1rem'}} 
 							className="p-button-raised p-button-text"  icon="pi pi-play" />
 							</Link>: '';
-	const codeButton = !!code?  <a href={`${code}`}>
+	const codeButton = !!code?  <a href={`${code}`} target="code">
 							 <Button label="Github" style={{'right': '0px',marginBottom:'1rem'}} 
 							className="p-button-raised mr-2"  icon="pi pi-github" />
 							</a>: '';
