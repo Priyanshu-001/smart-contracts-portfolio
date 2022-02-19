@@ -25,7 +25,8 @@ Requires metamask.
   *    Ether can be added using add_eth function
   *    The proposals are itself smart contracts deployed by the DAO
   *    Can be used to represent charities, RWAs.
- 
+
+# React Boilerpate Instructions
 ## Available Scripts
 
 In the project directory, you can run:
