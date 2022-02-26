@@ -95,9 +95,9 @@ export default function ConnectWallet(){
 			return cmd1 &&cmd2 && cmd3 && val
 		})
 		if(!(cmd1 &&cmd2 && cmd3 && val))
-			toast.current.show({severity:'error',summary:'There is no getting away from this'})
+			toast.current.show({severity:'error',summary:'Heyy do not try to sneak out of this.'})
 		else
-			toast.current.show({severity:'success',summary:'Remember your promise'})
+			toast.current.show({severity:'success',summary:'Thanks for viewing this portfolio.'})
 
 	}
 	const footer = (
@@ -116,17 +116,17 @@ export default function ConnectWallet(){
 		>
 		<span>
 		<Checkbox onChange={e=>setCmd1(()=>e.checked)} checked={cmd1} style={{margin:'0 1rem', marginBottom: '0.3rem'}} />
-		 Deploy and load contracts only from testnets like ROPSTEN/RINKEBY or local Ganache Server, etc </span>
+		 Deploy and load contracts only from testnets like ROPSTEN/RINKEBY or local Ganache Server, etc. </span>
 		<br></br>
 		<br></br>
 		<span>
 		<Checkbox onChange={e=>setCmd2(()=>e.checked)} checked={cmd2} style={{margin:'0 1rem', marginBottom: '0.3rem'}} />
-		 Accept that this is for educational purpose only and not fit for real world deployment</span>
+		 Accept that this is for learning purpose only.</span>
 		<br></br>
 		<br></br>
 		<span>
 		<Checkbox onChange={e=>setCmd3(()=>e.checked)} checked={cmd3}  style={{margin:'0 1rem', marginBottom: '0.3rem'}}/>
-		  Never ever deploy on MAINNET   </span>
+		  Never ever deploy on MAINNET.   </span>
 		<br></br>
 
 		</Dialog>

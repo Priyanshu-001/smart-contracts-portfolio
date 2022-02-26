@@ -18,6 +18,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.footer{
+  p{
+    font-size: 1.2ch;
+    color: darkgray;
+  }
+}
 .main{
   display: flex;
 

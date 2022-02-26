@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/navbar';
+import Footer from './components/Footer';
+
 
 import 'primereact/resources/themes/tailwind-light/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -16,6 +18,7 @@ function App() {
     <div className="App">
         <Navbar />
         <Outlet/>
+        <Footer/>
     </div>
   );
 }
