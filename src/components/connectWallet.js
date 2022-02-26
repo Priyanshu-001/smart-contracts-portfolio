@@ -121,7 +121,7 @@ export default function ConnectWallet(){
 		<br></br>
 		<span>
 		<Checkbox onChange={e=>setCmd2(()=>e.checked)} checked={cmd2} style={{margin:'0 1rem', marginBottom: '0.3rem'}} />
-		 Accept that this is for learning purpose only.</span>
+		 Accept that this is for learning/testing purpose only.</span>
 		<br></br>
 		<br></br>
 		<span>
