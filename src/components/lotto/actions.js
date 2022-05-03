@@ -11,8 +11,8 @@ import {Toast} from 'primereact/toast';
 import { Button } from 'primereact/button';
 import complied from '../../contracts/lotto/lotto.json'
 export default function Actions(){
+	
 	const navigate = useNavigate()
-
 	const [add,setAdd] = useState('')
 	const [prizePool,setPrizePool] = useState('0')
 	const [minTickets, setMinTickets] = useState(5)

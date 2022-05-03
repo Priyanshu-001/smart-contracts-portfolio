@@ -11,6 +11,17 @@ const initialState ={
 			bg:'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))',
 			code:'https://github.com/Priyanshu-001/smart-contracts-portfolio/blob/master/src/contracts/lotto/lotto.sol'
 		},
+		'uupsnft':{
+			name:'uupsnft',
+			link:'uupsnft',
+			displayName:'Upgradable NFT smart contract',
+			information:'An ERC721 contract that is also Upgradable',
+			image:'/nft.gif',
+			bg:'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))',
+			code:'https://github.com/Priyanshu-001/smart-contracts-portfolio/blob/master/src/contracts/guardian/guardian.sol',
+			
+
+		},
 		'guardian': {
 			link:'guardian',
 			name:'guardian',
