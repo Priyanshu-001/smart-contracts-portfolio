@@ -18,7 +18,7 @@ const initialState ={
 			information:'An ERC721 contract that is also Upgradable',
 			image:'/nft.gif',
 			bg:'linear-gradient(280deg,rgb(93 130 190), rgb(120 20 196))',
-			code:'https://github.com/Priyanshu-001/smart-contracts-portfolio/blob/master/src/contracts/guardian/guardian.sol',
+			code:'https://github.com/Priyanshu-001/smart-contracts/blob/main/contracts/NFT.sol',
 			
 
 		},
